@@ -1,0 +1,332 @@
+body {
+    background-color: #FFFFF0 ; /*#f8f8f8    #E3DAC9*/
+    /* This creates a tiny, subtle dot pattern for a "technical paper" look */
+    background-image: radial-gradient(#d1d1d1 0.8px, transparent 1px);
+    background-size: 20px 20px;
+    
+    /* Using the new font we imported */
+    font-family: 'JetBrains Mono', monospace;
+    color: #333; /* Softer black for text */
+}
+
+.wholepage{
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+      
+    /* Spacing */
+    padding: 15px 0;
+    margin-bottom: 10px; /* Pushes the content down a bit */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: #333; 
+    font-size: 16px; 
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.1s ease;
+}
+
+.links a:hover, 
+.links a:focus {
+    color: #3cff00; 
+    transform: translateY(-2px);
+    outline: none;
+}
+
+section {
+    margin-bottom: 32px;
+}
+
+section p {
+    margin: 0 0 14px;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Make .titles work for all sections */
+section p.titles {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+}
+
+/* Tools grid */
+.tools-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.tool-box {
+    border: 1px solid #000;
+    background-color: transparent;
+    width: 180px;
+    height: 100px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.tool-box i {
+    font-size: 65px;
+    display: block;
+    margin-bottom: 0;
+}
+
+.tool-box p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+}
+
+/* Project list styling */
+#project-list {
+    /* Switching from flex to grid for structural control */
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 15px; /* Spacing between the grid items */
+    
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+#project-list li:first-child {
+    /* Make the first project span 2 columns */
+    grid-column: span 2; 
+    
+    /* Increase height and font size to emphasize it */
+    min-height: 120px;
+    height: auto; 
+    font-size: 16px; 
+    font-weight: 600; 
+}
+
+#project-list li {
+    background-color: transparent;
+    border: 1px solid #333;
+    
+    /* Ensure all boxes align and fill their space */
+    width: auto; 
+    height: 75px; /* Default height for smaller boxes */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 3px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    color: #000;
+    word-break: break-word;
+    position: relative;
+    cursor: pointer;
+    
+    /* Add the subtle hover effect for visual polish */
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+#project-list li:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #000; /* High-contrast shadow on hover */
+}
+
+/* Make sure the project text is readable */
+#project-list li span {
+    display: block; /* Ensures text formatting works */
+    line-height: 1.3;
+}
+
+/* Style the actual hover content container */
+.popup {
+    position: absolute;
+    bottom: 100%; /* Position above the list item */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px); /* Center and add a small gap */
+    
+    /* Display/Sizing Fixes */
+    background: #fff;
+    border: 1px solid #3cff00; /* Use your accent color for highlight */
+    padding: 10px;
+    width: 560px; /* Reduced width to prevent massive overlap */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100; /* Ensure it overlaps other content, not vice-versa */
+    border-radius: 5px;
+    
+    /* Hide by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Show the popup on hover over the list item */
+#project-list li:hover .popup {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup img {
+    display: block;
+    /* This forces the image to stretch to the full width of the popup */
+    width: 100%; 
+    /* Ensures the height scales proportionally so it doesn't look squished */
+    height: auto; 
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Style the description inside the popup */
+.popup .desc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+    margin: 0;
+    /* Adds a little breathing room above the text */
+    padding-top: 5px; 
+}
+
+
+/* General ul/li styling for other lists */
+section ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+    margin-top: 10px;
+}
+
+section ul li {
+    border: 1px solid #000;
+    background-color: transparent;
+    padding: 10px 15px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: #000;
+}
+
+/* About section specific styles */
+#about {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-break: break-word;
+}
+
+#about p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Contact section styling */
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #333;
+    padding: 20px; /* slightly reduced for better proportion */
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.08);
+    min-height: 120px; /* keeps cards consistent height */
+}
+
+/* icon */
+.contact-card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* label (Email / GitHub / etc.) */
+.contact-card p {
+    font-size: 15px;
+    margin: 6px 0;
+    font-weight: 600;
+    color: #333;
+}
+
+/* the visible value (email address, username, etc.) */
+.contact-value {
+    display: block;
+    font-size: 13px;
+    color: #333;
+    margin-top: 6px;
+    max-width: 240px; /* constrains width so email doesn't dominate */
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+/* hover / focus */
+.contact-card:hover {
+    background-color: rgba(0,0,0,0.04);
+    border-color: #333;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #000;
+}
+
+.contact-card:focus-visible {
+    outline: 3px solid rgba(0,0,0,0.12);
+    outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+    .contact-card {
+        padding: 16px;
+        min-height: 110px;
+    }
+    .contact-card i { font-size: 36px; }
+    .contact-value { max-width: 100%; font-size: 13px; }
+}
+
+/* ...existing code... */
+
