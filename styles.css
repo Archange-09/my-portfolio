@@ -318,14 +318,294 @@ section ul li {
     outline-offset: 2px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 520px) {
+/* Responsive adjustments - Tablet & Small Screens */
+@media (max-width: 768px) {
+    .wholepage {
+        padding: 15px;
+    }
+
+    .navbar {
+        padding: 12px 0;
+        margin-bottom: 8px;
+    }
+
+    .links {
+        gap: 15px;
+    }
+
+    .links a {
+        font-size: 14px;
+    }
+
+    .links a:hover,
+    .links a:focus {
+        transform: translateY(-1px);
+    }
+
+    section p.titles {
+        font-size: 18px;
+    }
+
+    section p {
+        font-size: 15px;
+    }
+
+    /* Tools container for tablet */
+    .tools-container {
+        gap: 15px;
+        justify-content: space-between;
+    }
+
+    .tool-box {
+        width: calc(50% - 8px);
+        height: 90px;
+        padding: 15px;
+    }
+
+    .tool-box i {
+        font-size: 50px;
+    }
+
+    .tool-box p {
+        font-size: 12px;
+    }
+
+    /* Project list for tablet - 2 columns */
+    #project-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    #project-list li:first-child {
+        grid-column: span 2;
+        min-height: 100px;
+        font-size: 15px;
+    }
+
+    #project-list li {
+        height: 65px;
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    /* Popup for tablet */
+    .popup {
+        width: 400px;
+        bottom: auto;
+        top: 100%;
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    /* Contact container for tablet */
+    .contact-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 15px;
+    }
+
     .contact-card {
         padding: 16px;
         min-height: 110px;
     }
-    .contact-card i { font-size: 36px; }
-    .contact-value { max-width: 100%; font-size: 13px; }
+
+    .contact-card i { 
+        font-size: 36px; 
+    }
+
+    .contact-card p {
+        font-size: 14px;
+    }
+
+    .contact-value { 
+        max-width: 100%; 
+        font-size: 12px; 
+    }
+}
+
+/* Responsive adjustments - Mobile Phones */
+@media (max-width: 520px) {
+    .wholepage {
+        padding: 12px;
+        max-width: 100%;
+    }
+
+    .navbar {
+        padding: 10px 0;
+        margin-bottom: 8px;
+        flex-direction: column;
+    }
+
+    .links {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .links a {
+        font-size: 12px;
+        padding: 5px 8px;
+        border: 1px solid #333;
+        border-radius: 3px;
+        padding: 8px 12px;
+    }
+
+    .links a:hover,
+    .links a:focus {
+        transform: translateY(0);
+    }
+
+    section {
+        margin-bottom: 20px;
+    }
+
+    section p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    section p.titles {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    /* Tools container for mobile - single column */
+    .tools-container {
+        gap: 12px;
+        justify-content: space-between;
+    }
+
+    .tool-box {
+        width: calc(50% - 6px);
+        height: 80px;
+        padding: 12px;
+        gap: 4px;
+    }
+
+    .tool-box i {
+        font-size: 40px;
+        margin-bottom: 0;
+    }
+
+    .tool-box p {
+        font-size: 11px;
+        line-height: 1.3;
+    }
+
+    /* Skills list for mobile */
+    section ul {
+        gap: 8px;
+    }
+
+    section ul li {
+        padding: 8px 10px;
+        font-size: 12px;
+        flex: 1 1 calc(50% - 4px);
+        min-width: 120px;
+    }
+
+    /* Project list for mobile - single column */
+    #project-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    #project-list li:first-child {
+        grid-column: span 1;
+        min-height: 80px;
+        font-size: 13px;
+        padding: 12px;
+    }
+
+    #project-list li {
+        height: auto;
+        min-height: 60px;
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    #project-list li span {
+        line-height: 1.2;
+    }
+
+    /* Popup for mobile - positioned differently */
+    .popup {
+        position: fixed;
+        bottom: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(50%);
+        width: calc(100vw - 24px);
+        max-width: 100%;
+        padding: 12px;
+        max-height: 70vh;
+        overflow-y: auto;
+        z-index: 1000;
+    }
+
+    .popup img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 8px;
+    }
+
+    .popup .desc {
+        font-size: 11px;
+        padding-top: 4px;
+    }
+
+    /* Contact container for mobile - single column */
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    .contact-card {
+        padding: 14px;
+        min-height: 100px;
+    }
+
+    .contact-card i { 
+        font-size: 32px;
+        margin-bottom: 6px;
+    }
+
+    .contact-card p {
+        font-size: 13px;
+        margin: 4px 0;
+    }
+
+    .contact-value { 
+        font-size: 11px;
+        max-width: 100%;
+    }
+
+    /* Footer for mobile */
+    .site-footer {
+        margin-top: 30px;
+        padding: 12px 0;
+    }
+
+    .footer-quote {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    /* About text - single column align on mobile */
+    #about {
+        text-align: left;
+        text-justify: auto;
+        hyphens: none;
+    }
+
+    #about p {
+        text-align: left;
+        text-justify: auto;
+    }
 }
 
 /* Footer styles */
